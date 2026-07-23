@@ -35,7 +35,7 @@ public class LevelLogic : MonoBehaviour
 
     [NonSerialized]public int batidasLevel;
 
-    private float timerLevel;
+    public float timerLevel;
     
     [NonSerialized] public int batidaAtual;
 
