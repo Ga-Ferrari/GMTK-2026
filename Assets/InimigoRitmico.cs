@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -19,13 +20,16 @@ public class InimigoRitmico : MonoBehaviour
     private int currentStage; //Apenas Visual
 
     [Header("TempoDeAtk, irá virar configuração do nível")]
-    [SerializeField]private float timeToAtk = 3;
+    [NonSerialized]public float timeToAtk = 3;
     private float atkTimer;
 
     [Header("Que eventos chamar no hit")]
     public UnityEvent<TipoDeAcerto> tomouDano;
 
     private bool vivo = true;
+
+    private int batidasPraMudar =3;
+    private int contadorBatidas=0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,8 +41,8 @@ public class InimigoRitmico : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   if(!vivo)return;
-        currentStage = (int)math.ceil(atkTimer);
-        if(atkTimer>0)transform.localScale = new Vector3(atkTimer,atkTimer,atkTimer);
+
+        transform.localScale = new Vector3(currentStage,currentStage,currentStage);
         if (atkTimer < -GameManager.instance.hitTimeBuffer)
         {
             tomarDano();
@@ -66,6 +70,24 @@ public class InimigoRitmico : MonoBehaviour
             return;
         }
         tomouDano?.Invoke(TipoDeAcerto.Perfeito);
+        Destroy(this);
+        enabled = false;
+
     }
+
+    public void OnBeat(int batidaAtual)
+    {
+        if(!vivo)return;
+        contadorBatidas++;
+        Debug.Log("Batidas: " + contadorBatidas);
+        Debug.Log("Batidas mudar: " + batidasPraMudar);
+        Debug.Log("Current stage: " + currentStage);
+        if (contadorBatidas >= batidasPraMudar)
+        {
+            currentStage--;
+            contadorBatidas=0;
+        }
+    }
+
 
 }

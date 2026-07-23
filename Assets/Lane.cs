@@ -34,14 +34,14 @@ public class Lane : MonoBehaviour
         // 2. Pega o script InimigoRitmico que está dentro desse prefab que acabou de nascer
         InimigoRitmico scriptInimigo = novoInimigoObj.GetComponent<InimigoRitmico>();
 
+        scriptInimigo.timeToAtk = level.segPorBatida*level.tempoInimigo;
+        scriptInimigo.tomouDano.AddListener(teste);
         InimigosAtivos.Enqueue(scriptInimigo);
-        Debug.Log("Inimigo spawnado na Lane: " + gameObject.name);
         
     }
 
     public void OnBeat(int batidaAtual)
     {
-
         if (filaInimigos.Count > 0)
         {
             if (filaInimigos.Peek().BatidaPosicionar - batidaAtual< level.tempoInimigo)
@@ -49,14 +49,22 @@ public class Lane : MonoBehaviour
                 SpawnarInimigoVisual();
                 filaInimigos.Dequeue();
             }
+            
+        }
+        if (InimigosAtivos.Count > 0)
+        {
+            InimigosAtivos.Peek().OnBeat(batidaAtual);
         }
         
     }
     
     public void AtacarInimigo()
     {
-        InimigosAtivos.Peek().tomarDano();
-        InimigosAtivos.Dequeue();
+        if (InimigosAtivos.Count > 0)
+        {
+            InimigosAtivos.Peek().tomarDano();
+            InimigosAtivos.Dequeue();
+        }
     }
 
     public void teste(TipoDeAcerto acerto)
@@ -66,6 +74,7 @@ public class Lane : MonoBehaviour
 
     public void AddInimigo(InimigoPosicao inimigo)
     {
+        Debug.Log("Inimigo adicionado na lane");
         filaInimigos.Clear();
         filaInimigos.Enqueue(inimigo);
     }

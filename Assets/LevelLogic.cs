@@ -28,6 +28,7 @@ public class LevelLogic : MonoBehaviour
     public int duracao; //Em segundos
     [Header("Tempo de aparecimento do inimigo (em batidas)")]
     public int tempoInimigo = 9;
+    public float segPorBatida = 0;
 
     [SerializeField] private List<InimigoPosicao> inimigos;
 
@@ -36,16 +37,17 @@ public class LevelLogic : MonoBehaviour
 
     private float timerLevel;
     
-    [NonSerialized] public int batidaAtual; 
+    [NonSerialized] public int batidaAtual;
 
     public UnityEvent<int> PassouBatida;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        batidasLevel = duracao/bpm;
+        batidasLevel = (int)(duracao/60f)*bpm;
         timerLevel = 0.0f;
         batidaAtual = 0;
+        segPorBatida = 60f/bpm;
         PosicionarInimigos();
     }
 
@@ -55,10 +57,15 @@ public class LevelLogic : MonoBehaviour
     void Update()
     {
         timerLevel+= Time.deltaTime;
-        if (batidaAtual != (int)math.floor(timerLevel / ((float)duracao / (float)batidasLevel)))
-        {
+        int batidaCalculada = (int)math.floor(timerLevel / segPorBatida);
+        if (batidaAtual != batidaCalculada)
+        {  
             batidaAtual = (int)math.floor(timerLevel/((float)duracao/(float)batidasLevel));
             PassouBatida?.Invoke(batidaAtual);
+            foreach (MapeamentoLane mapLane in lanes)
+            {
+                mapLane.laneAtribuida.OnBeat(batidaAtual);
+            }
         }
     }
 
