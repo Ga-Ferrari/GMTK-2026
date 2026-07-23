@@ -1,68 +1,68 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Lane : MonoBehaviour
 {
-
-    private Queue<InimigoPosicao> filaInimigos = new Queue<InimigoPosicao>();
+    // O seu novo "Map" (Dicionário). A chave (int) é a batida exata em que ele deve ser acertado.
+    private Dictionary<int, InimigoPosicao> mapaInimigos = new Dictionary<int, InimigoPosicao>();
 
     private Queue<InimigoRitmico> InimigosAtivos = new Queue<InimigoRitmico>();
+    
     [SerializeField] private LevelLogic level;
     [SerializeField] private GameObject inimigoPrefab;
 
     [SerializeField] private Transform inicioLane;
     [SerializeField] private Transform fimLane;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void SpawnarInimigoVisual()
+    public void SpawnarInimigoVisual(int batida)
     {
-        // 1. Instancia o prefab na posição da Lane, sem rotação especial (Quaternion.identity)
         GameObject novoInimigoObj = Instantiate(inimigoPrefab, inicioLane.position, Quaternion.identity);
-
-        // 2. Pega o script InimigoRitmico que está dentro desse prefab que acabou de nascer
         InimigoRitmico scriptInimigo = novoInimigoObj.GetComponent<InimigoRitmico>();
 
-        scriptInimigo.timeToAtk = level.segPorBatida*level.tempoInimigo;
+        scriptInimigo.SpB = level.segPorBatida;
+        scriptInimigo.batidaAtk = batida;
         scriptInimigo.tomouDano.AddListener(teste);
-        InimigosAtivos.Enqueue(scriptInimigo);
         
+        InimigosAtivos.Enqueue(scriptInimigo);
     }
 
     public void OnBeat(int batidaAtual)
     {
-        if (filaInimigos.Count > 0)
+        // 1. Qual é a batida que devemos observar AGORA?
+        // Se o inimigo demora 9 batidas para chegar (tempoInimigo), nós olhamos 9 batidas para o futuro.
+        int batidaParaSpawnar = batidaAtual + level.tempoInimigo;
+
+        // 2. O Dicionário tem acesso instantâneo! É só perguntar se existe um inimigo mapeado nessa batida alvo.
+        if (mapaInimigos.ContainsKey(batidaParaSpawnar))
         {
-            if (filaInimigos.Peek().BatidaPosicionar - batidaAtual< level.tempoInimigo)
-            {
-                SpawnarInimigoVisual();
-                filaInimigos.Dequeue();
-            }
+            SpawnarInimigoVisual(batidaParaSpawnar);
             
-        }
-        if (InimigosAtivos.Count > 0)
-        {
-            InimigosAtivos.Peek().OnBeat(batidaAtual);
+            // Note que NÃO removemos o inimigo do mapaInimigos.
+            // Os dados originais ficam salvos para podermos voltar no tempo depois!
         }
         
+        if (InimigosAtivos.Count > 0)
+        {
+            // O OnBeat dos inimigos ativos (os visuais) continua funcionando
+            InimigosAtivos.Peek().OnBeat(batidaAtual);
+        }
     }
     
-    public void AtacarInimigo()
+    public void AtacarInimigo(float tempoDoAtk)
     {
         if (InimigosAtivos.Count > 0)
         {
-            InimigosAtivos.Peek().tomarDano();
+            InimigosAtivos.Peek().tomarDano(tempoDoAtk);
             InimigosAtivos.Dequeue();
         }
     }
@@ -74,9 +74,15 @@ public class Lane : MonoBehaviour
 
     public void AddInimigo(InimigoPosicao inimigo)
     {
-        Debug.Log("Inimigo adicionado na lane");
-        filaInimigos.Clear();
-        filaInimigos.Enqueue(inimigo);
+        // Verifica se já não existe um inimigo cadastrado nessa mesma batida (evita erros)
+        if (!mapaInimigos.ContainsKey(inimigo.BatidaPosicionar))
+        {
+            mapaInimigos.Add(inimigo.BatidaPosicionar, inimigo);
+            Debug.Log($"Inimigo adicionado na lane para a batida: {inimigo.BatidaPosicionar}");
+        }
+        else
+        {
+            Debug.LogWarning($"Aviso: Já existe um inimigo na batida {inimigo.BatidaPosicionar} nesta lane!");
+        }
     }
-
 }

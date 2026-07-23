@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 
 public enum TipoDeAcerto{
@@ -17,76 +18,87 @@ public class InimigoRitmico : MonoBehaviour
 {
     [Header("Quantos estágios de ataque irão ter, ex:3 = (3,2,1)")]
     [SerializeField] private int maxStages = 3; //Apenas Visual
-    private int currentStage; //Apenas Visual
 
     [Header("TempoDeAtk, irá virar configuração do nível")]
-    [NonSerialized]public float timeToAtk = 3;
-    private float atkTimer;
+    [NonSerialized]public int batidaAtk;
 
     [Header("Que eventos chamar no hit")]
     public UnityEvent<TipoDeAcerto> tomouDano;
 
+    public float SpB;
+
+    private int currentStage; //Apenas Visual
     private bool vivo = true;
 
     private int batidasPraMudar =3;
     private int contadorBatidas=0;
+
+    private Renderer inimigoRenderer;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        atkTimer = timeToAtk;
+        inimigoRenderer = GetComponent<Renderer>();
         currentStage = maxStages;
     }
 
     // Update is called once per frame
     void Update()
-    {   if(!vivo)return;
-
-        transform.localScale = new Vector3(currentStage,currentStage,currentStage);
-        if (atkTimer < -GameManager.instance.hitTimeBuffer)
-        {
-            tomarDano();
-        }
-        else
-        {
-            atkTimer-=Time.deltaTime;
-        }
+    {   
+        
     }
 
-    public void tomarDano()
+    public void tomarDano(float tempoDoAtk)
     {
-        Debug.Log("Fui atacado em :" + atkTimer);
         vivo = false;
-        if (math.abs(atkTimer)>GameManager.instance.hitTimeBuffer)
+        float diferencaTempo = batidaAtk*SpB - tempoDoAtk; 
+        ficarInvisivel();
+        if ( math.abs(diferencaTempo)>GameManager.instance.hitTimeBuffer)
         {
-            if(atkTimer>0)tomouDano?.Invoke(TipoDeAcerto.MuitoAdiantado);
+            if(diferencaTempo>0)tomouDano?.Invoke(TipoDeAcerto.MuitoAdiantado);
             else tomouDano?.Invoke(TipoDeAcerto.MuitoAtrasado);
             return;
         }
-        else if (math.abs(atkTimer)>GameManager.instance.hitTimePerfect)
+        else if (math.abs(diferencaTempo)>GameManager.instance.hitTimePerfect)
         {
-            if(atkTimer>0)tomouDano?.Invoke(TipoDeAcerto.Adiantado);
+            if(diferencaTempo>0)tomouDano?.Invoke(TipoDeAcerto.Adiantado);
             else tomouDano?.Invoke(TipoDeAcerto.Atrasado);
             return;
         }
         tomouDano?.Invoke(TipoDeAcerto.Perfeito);
-        Destroy(this);
-        enabled = false;
 
+    }
+
+    private void ficarInvisivel()
+    {
+        if (inimigoRenderer != null)
+        {
+            inimigoRenderer.enabled = false; // Desliga o desenho na tela
+        }
+    }
+
+    private void ficarVisivel()
+    {
+        if (inimigoRenderer != null)
+        {
+            inimigoRenderer.enabled = true; // Liga o desenho na tela novamente
+        }
     }
 
     public void OnBeat(int batidaAtual)
     {
-        if(!vivo)return;
-        contadorBatidas++;
-        Debug.Log("Batidas: " + contadorBatidas);
-        Debug.Log("Batidas mudar: " + batidasPraMudar);
-        Debug.Log("Current stage: " + currentStage);
-        if (contadorBatidas >= batidasPraMudar)
+        if (batidaAtual < batidaAtk)
         {
-            currentStage--;
-            contadorBatidas=0;
+            ficarVisivel();
+            vivo = true;
         }
+
+        if(!vivo) return;
+
+        currentStage = (batidaAtk - batidaAtual) / batidasPraMudar;
+        
+        // Atualiza o tamanho apenas uma vez por batida!
+        transform.localScale = new Vector3(currentStage, currentStage, currentStage);
     }
 
 

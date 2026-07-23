@@ -33,7 +33,7 @@ public class LevelInputManager : MonoBehaviour
                     lane = level.PegarLanePorPosicao(PosicaoLane.direita);
                     break;
             }
-            lane.AtacarInimigo();
+            lane.AtacarInimigo(level.timerLevel);
         }
     }
 
