@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using System.Collections.Generic;
 
 public enum TipoDeAcerto { MuitoAdiantado, Adiantado, Perfeito, Atrasado, MuitoAtrasado }
 
@@ -10,7 +11,7 @@ public class InimigoRitmico : MonoBehaviour
 {
     [Header("TempoDeAtk")]
     [NonSerialized] public int batidaAtk;
-
+    
     [Header("Eventos")]
     public UnityEvent<TipoDeAcerto> tomouDano;
     public float SpB;
@@ -24,7 +25,8 @@ public class InimigoRitmico : MonoBehaviour
     private bool vivo = true;
     private SpriteRenderer inimigoRenderer;
 
-    private float progressoAtual = 0f; 
+    private float progressoAtual = 0f;
+    [SerializeField] private AudioClip[] Clips;
 
     [Header("Tipos Especiais")]
     public TipoInimigo tipoInimigo;
@@ -82,8 +84,8 @@ public class InimigoRitmico : MonoBehaviour
         if(animatorInimigo == null) 
         {
             animatorInimigo = GetComponent<Animator>();
-            Debug.Log("Entrou if null");
-            if(animatorInimigo==null)Debug.Log("Null ainda");
+            
+            
         }
         
         switch (laneDeOrigem)
@@ -122,9 +124,11 @@ public class InimigoRitmico : MonoBehaviour
         {
             if(diferencaTempo > 0) tomouDano?.Invoke(TipoDeAcerto.Adiantado);
             else tomouDano?.Invoke(TipoDeAcerto.Atrasado);
+            //GameManager.instance.TocarAudio(Clips[1],1);
         }
         else 
         {
+            //GameManager.instance.TocarAudio(Clips[1], 1);
             tomouDano?.Invoke(TipoDeAcerto.Perfeito);
         }
         
@@ -176,6 +180,7 @@ public class InimigoRitmico : MonoBehaviour
 
 public void OnBeat(int batidaAtual)
     {
+        
         if (batidaAtual < batidaAtk - batidasAvisoPrevio) return;
         
         if (batidaAtual < batidaAtk)
@@ -202,6 +207,11 @@ public void OnBeat(int batidaAtual)
         if (!vivo) return;
 
         int batidasRestantes = batidaAtk - batidaAtual;
+        
+        GameManager.instance.TocarAudio(Clips[0],SpB);
+        
+        
+        
 
         // Atualiza o texto (ignorando se estiver na fase invisível do Ninja)
         if (textoContagem != null && !(tipoInimigo == TipoInimigo.Ninja && progressoAtual > 0.5f && !ninjaRevelado))

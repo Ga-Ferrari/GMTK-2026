@@ -39,10 +39,10 @@ public void OnPress(InputAction.CallbackContext context)
             
             if (lane != null)
             {
-                Debug.Log("Entrou if lane");
+                
                 if (context.started)
                 {
-                    Debug.Log("Entrou if");
+                    
                     lane.AtacarInimigo(level.timerLevel); // APERTOU
                     if (playerVisual != null) playerVisual.MudarDirecao(direcaoAtacada);
                 }
