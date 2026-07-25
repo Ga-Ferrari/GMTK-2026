@@ -109,14 +109,21 @@ public class InimigoRitmico : MonoBehaviour
     {
         vivo = false;
         float diferencaTempo = batidaAtk * SpB - tempoDoAtk; 
-        ficarInvisivel();
+        
+
         
         if (textoContagem != null) textoContagem.enabled = false; 
 
         if (math.abs(diferencaTempo) > GameManager.instance.hitTimeBuffer)
         {
-            if(diferencaTempo > 0) tomouDano?.Invoke(TipoDeAcerto.MuitoAdiantado);
-            else tomouDano?.Invoke(TipoDeAcerto.MuitoAtrasado);
+            if(diferencaTempo > 0)
+            {
+                tomouDano?.Invoke(TipoDeAcerto.MuitoAdiantado);
+            }
+            else {
+                tomouDano?.Invoke(TipoDeAcerto.MuitoAtrasado);
+                
+            }
         }
         else if (math.abs(diferencaTempo) > GameManager.instance.hitTimePerfect)
         {
@@ -127,8 +134,15 @@ public class InimigoRitmico : MonoBehaviour
         {
             tomouDano?.Invoke(TipoDeAcerto.Perfeito);
         }
+
+        Destroy(gameObject,0.2f);
         
-        Destroy(gameObject, 0.2f);
+    }
+
+    public void DestruirAposAnimacao()
+    {
+        ficarInvisivel(); // Caso queira que ele suma um frame antes de destruir
+        Destroy(gameObject);
     }
 
     // Funções exclusivas do Beefy-Boy (Segurar o botão)
@@ -166,9 +180,8 @@ public class InimigoRitmico : MonoBehaviour
     public void ForcarMortePorPassarDoTempo()
     {
         vivo = false;
-        ficarInvisivel();
+        animatorInimigo.SetTrigger("Atirar");
         if (textoContagem != null) textoContagem.enabled = false;
-        Destroy(gameObject, 0.1f); 
     }
 
     private void ficarInvisivel() { if (inimigoRenderer != null) inimigoRenderer.enabled = false; }

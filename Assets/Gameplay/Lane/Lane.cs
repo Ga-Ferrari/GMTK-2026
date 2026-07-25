@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Lane : MonoBehaviour
@@ -23,6 +25,13 @@ public class Lane : MonoBehaviour
     [Header("Espaçamento de Inimigos")]
     public int espacoMinimoEmBatidas = 2; 
     private int ultimaBatidaAdicionada = -999; 
+
+    private AnimacaoAcerto animador;
+
+    void Start()
+    {
+        animador = GetComponent<AnimacaoAcerto>();
+    }
 
     // O SpawnarInimigoVisual agora recebe a InimigoPosicao inteira para saber o Tipo (Normal, Ninja ou Beefy)
     public void SpawnarInimigoVisual(InimigoPosicao infoInimigo)
@@ -51,6 +60,7 @@ public class Lane : MonoBehaviour
         scriptInimigo.SpB = level.segPorBatida;
         scriptInimigo.batidaAtk = infoInimigo.BatidaPosicionar;
         scriptInimigo.tipoInimigo = infoInimigo.tipo; 
+        scriptInimigo.tomouDano.AddListener(animador.animarAcerto);
         scriptInimigo.tomouDano.AddListener(teste);
         scriptInimigo.ConfigurarMovimento(inicioLane.position, fimLane.position, level.tempoInimigo);
         scriptInimigo.DefinirSpritePorLane(posicaoDestaLane);
@@ -127,6 +137,8 @@ public class Lane : MonoBehaviour
             }
         }
     }
+
+    
 
     public void teste(TipoDeAcerto acerto)
     {
