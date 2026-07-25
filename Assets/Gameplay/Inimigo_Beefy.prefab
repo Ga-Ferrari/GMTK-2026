@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.031, y: 0.64}
+  m_AnchoredPosition: {x: 0.155, y: -1.446}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3775858587233948894
@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 6309181000577893966}
   - component: {fileID: 119869812318382704}
   - component: {fileID: 3179187499562379604}
+  - component: {fileID: 3797008993766780883}
   m_Layer: 0
   m_Name: Inimigo_Beefy
   m_TagString: Untagged
@@ -208,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 7639264125349719911}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.79, y: -0.04, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4923571, y: 1.4816703, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -264,8 +265,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.10148162, a: 1}
+  m_Sprite: {fileID: -3551668112139326804, guid: 507027e5ce5f1144da054a6e70b8cf9c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -292,7 +293,25 @@ MonoBehaviour:
   SpB: 0
   textoContagem: {fileID: 7120109699184393274}
   tipoInimigo: 0
-  spriteVindoCima: {fileID: -9144821725440008000, guid: 38f81324bb099a34eb248b419cef9cff, type: 3}
-  spriteVindoBaixo: {fileID: -5727205985371418544, guid: 38f81324bb099a34eb248b419cef9cff, type: 3}
-  spriteVindoEsquerda: {fileID: -5627168241951368263, guid: 38f81324bb099a34eb248b419cef9cff, type: 3}
-  spriteVindoDireita: {fileID: 8056149753282349972, guid: 38f81324bb099a34eb248b419cef9cff, type: 3}
+--- !u!95 &3797008993766780883
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639264125349719911}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7be12dc18daa58e468dda2b5023e29ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

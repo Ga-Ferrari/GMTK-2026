@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 9b68c66621f4f3341bd68f996aaab781
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3451060024817847770
+    second: cowboy_shooting_sheet_0
+  - first:
+      213: -3754111017106318803
+    second: cowboy_shooting_sheet_1
+  - first:
+      213: -9191627392824803951
+    second: cowboy_shooting_sheet_2
+  - first:
+      213: 7769210610142951164
+    second: cowboy_shooting_sheet_3
+  - first:
+      213: -2356136486703249573
+    second: cowboy_shooting_sheet_4
+  - first:
+      213: -7026119436362599251
+    second: cowboy_shooting_sheet_5
+  - first:
+      213: -1997850795604985395
+    second: cowboy_shooting_sheet_6
+  - first:
+      213: 8173649683387344406
+    second: cowboy_shooting_sheet_7
+  - first:
+      213: 981628444508852180
+    second: cowboy_shooting_sheet_8
+  - first:
+      213: -8041683318279476123
+    second: cowboy_shooting_sheet_9
+  - first:
+      213: -1651002028035429865
+    second: cowboy_shooting_sheet_10
+  - first:
+      213: -7581173956439659305
+    second: cowboy_shooting_sheet_11
+  - first:
+      213: 8176606069468850017
+    second: cowboy_shooting_sheet_12
+  - first:
+      213: -8456175814220353659
+    second: cowboy_shooting_sheet_13
+  - first:
+      213: 2142890072105036386
+    second: cowboy_shooting_sheet_14
+  - first:
+      213: 4701726258086989172
+    second: cowboy_shooting_sheet_15
+  - first:
+      213: 3755012280533573639
+    second: cowboy_shooting_sheet_16
+  - first:
+      213: 7585516832695956658
+    second: cowboy_shooting_sheet_17
+  - first:
+      213: -4840803213507545518
+    second: cowboy_shooting_sheet_18
+  - first:
+      213: 6531274799142693828
+    second: cowboy_shooting_sheet_19
+  - first:
+      213: -5931336417890919622
+    second: cowboy_shooting_sheet_20
+  - first:
+      213: 6023128789822680483
+    second: cowboy_shooting_sheet_21
+  - first:
+      213: 2993018014697281297
+    second: cowboy_shooting_sheet_22
+  - first:
+      213: -5385285523854975339
+    second: cowboy_shooting_sheet_23
+  - first:
+      213: 1176341993336677225
+    second: cowboy_shooting_sheet_24
+  - first:
+      213: 963399007940238795
+    second: cowboy_shooting_sheet_25
+  - first:
+      213: 7126266316964511872
+    second: cowboy_shooting_sheet_26
+  - first:
+      213: -7777463763719801148
+    second: cowboy_shooting_sheet_27
+  - first:
+      213: -4130069873946369033
+    second: cowboy_shooting_sheet_28
+  - first:
+      213: -6573011476533000459
+    second: cowboy_shooting_sheet_29
+  - first:
+      213: -4091017570671301697
+    second: cowboy_shooting_sheet_30
+  - first:
+      213: 102365229589010660
+    second: cowboy_shooting_sheet_31
+  - first:
+      213: 7095453962488972552
+    second: cowboy_shooting_sheet_32
+  - first:
+      213: 2942834331787467870
+    second: cowboy_shooting_sheet_33
+  - first:
+      213: 6271563394952879656
+    second: cowboy_shooting_sheet_34
+  - first:
+      213: 7848652390538466863
+    second: cowboy_shooting_sheet_35
+  - first:
+      213: 8329266558279785314
+    second: cowboy_shooting_sheet_36
+  - first:
+      213: 6701419423728950050
+    second: cowboy_shooting_sheet_37
+  - first:
+      213: -5718422380240489498
+    second: cowboy_shooting_sheet_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add81dddec0a4ef20800000000000000
+      internalID: 3451060024817847770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a5ff98be7b6ebc0800000000000000
+      internalID: -3754111017106318803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d7de6e597c07080800000000000000
+      internalID: -9191627392824803951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 8
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf634ca03e7c1db60800000000000000
+      internalID: 7769210610142951164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5747b349525d4fd0800000000000000
+      internalID: -2356136486703249573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 4
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da4b32e39953e7e90800000000000000
+      internalID: -7026119436362599251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc9bbb559453644e0800000000000000
+      internalID: -1997850795604985395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61669c8c413ae6170800000000000000
+      internalID: 8173649683387344406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df8e509ed17f9d00800000000000000
+      internalID: 981628444508852180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 0
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c64c1f0a3366090800000000000000
+      internalID: -8041683318279476123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71aaf7327667619e0800000000000000
+      internalID: -1651002028035429865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dca8f114724ac690800000000000000
+      internalID: -7581173956439659305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1676efe06e3297170800000000000000
+      internalID: 8176606069468850017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f652356e0a5aa80800000000000000
+      internalID: -8456175814220353659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a2884ca231dbd10800000000000000
+      internalID: 2142890072105036386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47dc664fe13ef3140800000000000000
+      internalID: 4701726258086989172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700ee6436cb7c1430800000000000000
+      internalID: 3755012280533573639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4b69a9e5b254960800000000000000
+      internalID: 7585516832695956658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 256305fff1302dcb0800000000000000
+      internalID: -4840803213507545518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb6c5d53dfb3aa50800000000000000
+      internalID: 6531274799142693828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b164814f8afada0800000000000000
+      internalID: -5931336417890919622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad2fc1f8b3769350800000000000000
+      internalID: 6023128789822680483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 0
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1175064d606598920800000000000000
+      internalID: 2993018014697281297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 6
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e1298395f9345b0800000000000000
+      internalID: -5385285523854975339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 0
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96325377fc4335010800000000000000
+      internalID: 1176341993336677225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcddd3d1b4eae5d00800000000000000
+      internalID: 963399007940238795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 0
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080408d657595e260800000000000000
+      internalID: 7126266316964511872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 0
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c63206e9e5e01490800000000000000
+      internalID: -7777463763719801148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f362e9e45b0fa6c0800000000000000
+      internalID: -4130069873946369033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f64fac23e8f7c4a0800000000000000
+      internalID: -6573011476533000459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbb6142d139c937c0800000000000000
+      internalID: -4091017570671301697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8110b42acab6100800000000000000
+      internalID: 102365229589010660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8050b4a19cd187260800000000000000
+      internalID: 7095453962488972552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5c1403ab3c07d820800000000000000
+      internalID: 2942834331787467870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_34
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e5286fda1190750800000000000000
+      internalID: 6271563394952879656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 0
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26d097e3c30cec60800000000000000
+      internalID: 7848652390538466863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b9ecdedcf779370800000000000000
+      internalID: 8329266558279785314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b5442d579300d50800000000000000
+      internalID: 6701419423728950050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowboy_shooting_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e33f16842514a0b0800000000000000
+      internalID: -5718422380240489498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cowboy_shooting_sheet_0: 3451060024817847770
+      cowboy_shooting_sheet_1: -3754111017106318803
+      cowboy_shooting_sheet_10: -1651002028035429865
+      cowboy_shooting_sheet_11: -7581173956439659305
+      cowboy_shooting_sheet_12: 8176606069468850017
+      cowboy_shooting_sheet_13: -8456175814220353659
+      cowboy_shooting_sheet_14: 2142890072105036386
+      cowboy_shooting_sheet_15: 4701726258086989172
+      cowboy_shooting_sheet_16: 3755012280533573639
+      cowboy_shooting_sheet_17: 7585516832695956658
+      cowboy_shooting_sheet_18: -4840803213507545518
+      cowboy_shooting_sheet_19: 6531274799142693828
+      cowboy_shooting_sheet_2: -9191627392824803951
+      cowboy_shooting_sheet_20: -5931336417890919622
+      cowboy_shooting_sheet_21: 6023128789822680483
+      cowboy_shooting_sheet_22: 2993018014697281297
+      cowboy_shooting_sheet_23: -5385285523854975339
+      cowboy_shooting_sheet_24: 1176341993336677225
+      cowboy_shooting_sheet_25: 963399007940238795
+      cowboy_shooting_sheet_26: 7126266316964511872
+      cowboy_shooting_sheet_27: -7777463763719801148
+      cowboy_shooting_sheet_28: -4130069873946369033
+      cowboy_shooting_sheet_29: -6573011476533000459
+      cowboy_shooting_sheet_3: 7769210610142951164
+      cowboy_shooting_sheet_30: -4091017570671301697
+      cowboy_shooting_sheet_31: 102365229589010660
+      cowboy_shooting_sheet_32: 7095453962488972552
+      cowboy_shooting_sheet_33: 2942834331787467870
+      cowboy_shooting_sheet_34: 6271563394952879656
+      cowboy_shooting_sheet_35: 7848652390538466863
+      cowboy_shooting_sheet_36: 8329266558279785314
+      cowboy_shooting_sheet_37: 6701419423728950050
+      cowboy_shooting_sheet_38: -5718422380240489498
+      cowboy_shooting_sheet_4: -2356136486703249573
+      cowboy_shooting_sheet_5: -7026119436362599251
+      cowboy_shooting_sheet_6: -1997850795604985395
+      cowboy_shooting_sheet_7: 8173649683387344406
+      cowboy_shooting_sheet_8: 981628444508852180
+      cowboy_shooting_sheet_9: -8041683318279476123
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -31,17 +31,14 @@ public class InimigoRitmico : MonoBehaviour
     [NonSerialized] public bool sendoSegurado = false;
     [NonSerialized] public int batidaParaSoltar;
 
-    [Header("Sprites por Lane de Origem")]
-    public Sprite spriteVindoCima;    
-    public Sprite spriteVindoBaixo;   
-    public Sprite spriteVindoEsquerda;
-    public Sprite spriteVindoDireita; 
+    private Animator animatorInimigo;
     
     private bool ninjaRevelado = false;
 
     void Start()
     {
         inimigoRenderer = GetComponent<SpriteRenderer>();
+        animatorInimigo = GetComponent<Animator>();
     }
 
     void Update()
@@ -82,20 +79,28 @@ public class InimigoRitmico : MonoBehaviour
     public void DefinirSpritePorLane(PosicaoLane laneDeOrigem)
     {
         if (inimigoRenderer == null) inimigoRenderer = GetComponent<SpriteRenderer>();
-
+        if(animatorInimigo == null) 
+        {
+            animatorInimigo = GetComponent<Animator>();
+            Debug.Log("Entrou if null");
+            if(animatorInimigo==null)Debug.Log("Null ainda");
+        }
+        
         switch (laneDeOrigem)
         {
             case PosicaoLane.cima:
-                inimigoRenderer.sprite = spriteVindoCima;
+                animatorInimigo.SetInteger("Direcao",1);
                 break;
             case PosicaoLane.baixo:
-                inimigoRenderer.sprite = spriteVindoBaixo;
+                animatorInimigo.SetInteger("Direcao",2);
+
                 break;
             case PosicaoLane.esquerda:
-                inimigoRenderer.sprite = spriteVindoEsquerda;
+                animatorInimigo.SetInteger("Direcao",3);
+
                 break;
             case PosicaoLane.direita:
-                inimigoRenderer.sprite = spriteVindoDireita;
+                animatorInimigo.SetInteger("Direcao",4);
                 break;
         }
     }

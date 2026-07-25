@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 6309181000577893966}
   - component: {fileID: 119869812318382704}
   - component: {fileID: 3179187499562379604}
+  - component: {fileID: 1652253129017713059}
   m_Layer: 0
   m_Name: Inimigo_Ninja
   m_TagString: Untagged
@@ -265,7 +266,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -292,7 +293,25 @@ MonoBehaviour:
   SpB: 0
   textoContagem: {fileID: 7120109699184393274}
   tipoInimigo: 0
-  spriteVindoCima: {fileID: 0}
-  spriteVindoBaixo: {fileID: 0}
-  spriteVindoEsquerda: {fileID: 0}
-  spriteVindoDireita: {fileID: 0}
+--- !u!95 &1652253129017713059
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639264125349719911}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7be12dc18daa58e468dda2b5023e29ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
