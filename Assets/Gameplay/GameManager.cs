@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("Visual das Vidas")]
     public GameObject[] coracoesVisual;
 
-    [SerializeField] private AudioSource Audio;
+    
     public AudioClip[] audios;
     void Awake()
     {
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             audio.pitch = 1/SpB;
             ultimoFrameTocado = Time.frameCount;
             ultimoClipTocado = clip;
-            Audio.PlayOneShot(clip);
+            audio.PlayOneShot(clip);
             float duracaoReal = clip.length / audio.pitch;
             Destroy(audio, duracaoReal);
         }
