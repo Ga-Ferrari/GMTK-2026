@@ -3,86 +3,154 @@ using UnityEngine;
 
 public class Lane : MonoBehaviour
 {
-    // O seu novo "Map" (Dicionário). A chave (int) é a batida exata em que ele deve ser acertado.
     private Dictionary<int, InimigoPosicao> mapaInimigos = new Dictionary<int, InimigoPosicao>();
-
     private Queue<InimigoRitmico> InimigosAtivos = new Queue<InimigoRitmico>();
     
+    [Header("Referências")]
     [SerializeField] private LevelLogic level;
-    [SerializeField] private GameObject inimigoPrefab;
+    
+    [Header("Identificação desta Lane")]
+    public PosicaoLane posicaoDestaLane;
 
+    [Header("Prefabs dos Inimigos")]
+    [Tooltip("Arraste os Prefabs na ordem: Element 0 = Normal, Element 1 = Ninja, Element 2 = Beefy")]
+    public GameObject[] inimigoPrefabs; 
+
+    [Header("Posições de Movimento")]
     [SerializeField] private Transform inicioLane;
     [SerializeField] private Transform fimLane;
 
-    void Start()
-    {
-        
-    }
+    [Header("Espaçamento de Inimigos")]
+    public int espacoMinimoEmBatidas = 2; 
+    private int ultimaBatidaAdicionada = -999; 
 
-    void Update()
+    // O SpawnarInimigoVisual agora recebe a InimigoPosicao inteira para saber o Tipo (Normal, Ninja ou Beefy)
+    public void SpawnarInimigoVisual(InimigoPosicao infoInimigo)
     {
-        
-    }
+        // Proteção para caso o Array esteja vazio no Inspector
+        if (inimigoPrefabs == null || inimigoPrefabs.Length == 0)
+        {
+            Debug.LogError("Você esqueceu de colocar os Prefabs no array 'Inimigo Prefabs' da Lane!");
+            return;
+        }
 
-    public void SpawnarInimigoVisual(int batida)
-    {
-        GameObject novoInimigoObj = Instantiate(inimigoPrefab, inicioLane.position, Quaternion.identity);
+        int indicePrefab = (int)infoInimigo.tipo;
+        
+        // Evita erros se você tentar spawnar um tipo que não tem prefab configurado
+        if (indicePrefab >= inimigoPrefabs.Length) 
+        {
+            indicePrefab = 0; 
+        }
+
+        // Instancia o inimigo correto e pega o script dele
+        GameObject prefabEscolhido = inimigoPrefabs[indicePrefab];
+        GameObject novoInimigoObj = Instantiate(prefabEscolhido, inicioLane.position, Quaternion.identity);
         InimigoRitmico scriptInimigo = novoInimigoObj.GetComponent<InimigoRitmico>();
 
+        // Configura todas as variáveis do inimigo
         scriptInimigo.SpB = level.segPorBatida;
-        scriptInimigo.batidaAtk = batida;
+        scriptInimigo.batidaAtk = infoInimigo.BatidaPosicionar;
+        scriptInimigo.tipoInimigo = infoInimigo.tipo; 
         scriptInimigo.tomouDano.AddListener(teste);
+        scriptInimigo.ConfigurarMovimento(inicioLane.position, fimLane.position, level.tempoInimigo);
+        scriptInimigo.DefinirSpritePorLane(posicaoDestaLane);
         
         InimigosAtivos.Enqueue(scriptInimigo);
     }
 
     public void OnBeat(int batidaAtual)
     {
-        // 1. Qual é a batida que devemos observar AGORA?
-        // Se o inimigo demora 9 batidas para chegar (tempoInimigo), nós olhamos 9 batidas para o futuro.
         int batidaParaSpawnar = batidaAtual + level.tempoInimigo;
 
-        // 2. O Dicionário tem acesso instantâneo! É só perguntar se existe um inimigo mapeado nessa batida alvo.
         if (mapaInimigos.ContainsKey(batidaParaSpawnar))
         {
-            SpawnarInimigoVisual(batidaParaSpawnar);
-            
-            // Note que NÃO removemos o inimigo do mapaInimigos.
-            // Os dados originais ficam salvos para podermos voltar no tempo depois!
+            SpawnarInimigoVisual(mapaInimigos[batidaParaSpawnar]); 
         }
         
-        if (InimigosAtivos.Count > 0)
+        while (InimigosAtivos.Count > 0)
         {
-            // O OnBeat dos inimigos ativos (os visuais) continua funcionando
-            InimigosAtivos.Peek().OnBeat(batidaAtual);
+            InimigoRitmico inimigoTopo = InimigosAtivos.Peek();
+
+            // Lógica para saber se deixou passar (O Beefy tem uma batida extra de limite por causa do Hold)
+            int batidaLimite = inimigoTopo.tipoInimigo == TipoInimigo.Beefy && inimigoTopo.sendoSegurado 
+                               ? inimigoTopo.batidaParaSoltar 
+                               : inimigoTopo.batidaAtk;
+
+            if (batidaAtual > batidaLimite)
+            {
+                Debug.Log("Deixou o inimigo passar ou esqueceu de soltar o Beefy! Perdeu vida.");
+                GameManager.instance.PerderVida();
+                inimigoTopo.ForcarMortePorPassarDoTempo(); 
+                InimigosAtivos.Dequeue(); 
+            }
+            else
+            {
+                break; // Se o primeiro da fila ainda está dentro do tempo, podemos parar de checar
+            }
+        }
+
+        foreach (InimigoRitmico inimigo in InimigosAtivos)
+        {
+            inimigo.OnBeat(batidaAtual);
         }
     }
     
+    // CHAMADO QUANDO O JOGADOR APERTA A TECLA
     public void AtacarInimigo(float tempoDoAtk)
     {
         if (InimigosAtivos.Count > 0)
         {
-            InimigosAtivos.Peek().tomarDano(tempoDoAtk);
-            InimigosAtivos.Dequeue();
+            InimigoRitmico inimigo = InimigosAtivos.Peek();
+            
+            if (inimigo.tipoInimigo == TipoInimigo.Beefy)
+            {
+                inimigo.IniciarHold(tempoDoAtk); // Inicia a mecânica de segurar botão
+            }
+            else
+            {
+                inimigo.tomarDano(tempoDoAtk); // Dano normal / kill
+                InimigosAtivos.Dequeue();
+            }
+        }
+    }
+
+    // CHAMADO QUANDO O JOGADOR SOLTA A TECLA
+    public void SoltarAtaque(float tempoDoAtk)
+    {
+        if (InimigosAtivos.Count > 0)
+        {
+            InimigoRitmico inimigo = InimigosAtivos.Peek();
+            if (inimigo.tipoInimigo == TipoInimigo.Beefy && inimigo.sendoSegurado)
+            {
+                inimigo.FinalizarHold(tempoDoAtk);
+                InimigosAtivos.Dequeue();
+            }
         }
     }
 
     public void teste(TipoDeAcerto acerto)
     {
-        Debug.Log("O acerto foi: " + acerto);
+        if (acerto == TipoDeAcerto.MuitoAdiantado || acerto == TipoDeAcerto.MuitoAtrasado)
+        {
+            GameManager.instance.PerderVida();
+        }
     }
 
-    public void AddInimigo(InimigoPosicao inimigo)
+    // Tenta adicionar o inimigo verificando a distância mínima
+    public bool AddInimigo(InimigoPosicao inimigo)
     {
-        // Verifica se já não existe um inimigo cadastrado nessa mesma batida (evita erros)
+        if (Mathf.Abs(inimigo.BatidaPosicionar - ultimaBatidaAdicionada) < espacoMinimoEmBatidas) 
+        {
+            return false; // Rejeitou: Muito perto do último
+        }
+
         if (!mapaInimigos.ContainsKey(inimigo.BatidaPosicionar))
         {
             mapaInimigos.Add(inimigo.BatidaPosicionar, inimigo);
-            Debug.Log($"Inimigo adicionado na lane para a batida: {inimigo.BatidaPosicionar}");
+            ultimaBatidaAdicionada = inimigo.BatidaPosicionar; 
+            return true; // Aceitou
         }
-        else
-        {
-            Debug.LogWarning($"Aviso: Já existe um inimigo na batida {inimigo.BatidaPosicionar} nesta lane!");
-        }
+        
+        return false;
     }
 }

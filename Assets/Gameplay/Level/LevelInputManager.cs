@@ -5,36 +5,50 @@ using UnityEngine.InputSystem;
 
 public class LevelInputManager : MonoBehaviour
 {
-
     [SerializeField] private LevelLogic level;
-    void Start()
-    {
-        
-    }
+    
+    [SerializeField] private PlayerVisual playerVisual; 
 
-    public void OnPress(InputAction.CallbackContext context)
+public void OnPress(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started || context.canceled) 
         {
             string actionName = context.action.name;
-            Lane lane = null;;
+            Lane lane = null;
+            PosicaoLane direcaoAtacada = PosicaoLane.baixo; 
+
             switch (actionName)
             {
                 case "UpLaneHit":
-                    lane = level.PegarLanePorPosicao(PosicaoLane.cima);
+                    direcaoAtacada = PosicaoLane.cima;
+                    lane = level.PegarLanePorPosicao(direcaoAtacada);
                     break;
                 case "DownLaneHit":
-                    lane =level.PegarLanePorPosicao(PosicaoLane.baixo);
+                    direcaoAtacada = PosicaoLane.baixo;
+                    lane = level.PegarLanePorPosicao(direcaoAtacada);
                     break;
                 case "LeftLaneHit":
-                    lane = level.PegarLanePorPosicao(PosicaoLane.esquerda);
+                    direcaoAtacada = PosicaoLane.esquerda;
+                    lane = level.PegarLanePorPosicao(direcaoAtacada);
                     break;
                 case "RightLaneHit":
-                    lane = level.PegarLanePorPosicao(PosicaoLane.direita);
+                    direcaoAtacada = PosicaoLane.direita;
+                    lane = level.PegarLanePorPosicao(direcaoAtacada);
                     break;
             }
-            lane.AtacarInimigo(level.timerLevel);
+            
+            if (lane != null)
+            {
+                if (context.started)
+                {
+                    lane.AtacarInimigo(level.timerLevel); // APERTOU
+                    if (playerVisual != null) playerVisual.MudarDirecao(direcaoAtacada);
+                }
+                else if (context.canceled)
+                {
+                    lane.SoltarAtaque(level.timerLevel); // SOLTOU
+                }
+            }
         }
     }
-
 }
