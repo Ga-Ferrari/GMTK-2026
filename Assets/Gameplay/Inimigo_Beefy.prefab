@@ -292,6 +292,9 @@ MonoBehaviour:
       m_Calls: []
   SpB: 0
   textoContagem: {fileID: 7120109699184393274}
+  Clips:
+  - {fileID: 8300000, guid: 050388ced7adaea489146ecbb889363d, type: 3}
+  - {fileID: 8300000, guid: f875308839405e146b50a366f8a8c71f, type: 3}
   tipoInimigo: 0
 --- !u!95 &3797008993766780883
 Animator:

@@ -57,6 +57,7 @@ public class LevelLogic : MonoBehaviour
 
     void Update()
     {
+        segPorBatida = 60f / bpm;
         timerLevel += Time.deltaTime;
         
         int batidaCalculada = (int)math.floor(timerLevel / segPorBatida);
@@ -153,6 +154,7 @@ public class LevelLogic : MonoBehaviour
         if (batidaAtual > 0 && batidaAtual % aumentarDificuldadeAcadaXBatidas == 0)
         {
             chanceDeSpawn = math.min(chanceDeSpawn + 0.05f, 0.85f);
+            bpm = (int)(bpm*1.2f);
             
             if (tempoInimigo > 4 && batidaAtual % (aumentarDificuldadeAcadaXBatidas * 2) == 0)
             {

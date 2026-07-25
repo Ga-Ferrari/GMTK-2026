@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerVisual : MonoBehaviour
 {
     private Animator animatorPlayer;
+    [SerializeField] AudioClip[] Clips;
 
     void Awake()
     {
@@ -11,7 +12,7 @@ public class PlayerVisual : MonoBehaviour
 
     public void MudarDirecao(PosicaoLane direcaoAtaque)
     {
-        Debug.Log("Entrou");
+        GameManager.instance.TocarAudio(Clips[0], 1);
         switch (direcaoAtaque)
         {
             case PosicaoLane.cima:

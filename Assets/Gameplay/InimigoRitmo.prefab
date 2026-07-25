@@ -104,8 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446258828a1b80449a115e39927d8b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxStages: 3
-  timeToAtk: 3
   tomouDano:
     m_PersistentCalls:
       m_Calls: []
+  SpB: 0
+  textoContagem: {fileID: 0}
+  Clips:
+  - {fileID: 8300000, guid: 050388ced7adaea489146ecbb889363d, type: 3}
+  - {fileID: 8300000, guid: f875308839405e146b50a366f8a8c71f, type: 3}
+  tipoInimigo: 0
