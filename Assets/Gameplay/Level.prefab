@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28abb95f3c66e354fa8d30264eb48b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
-  Clips: []
---- !u!1 &8181010205911682052
+  Clips:
+  - {fileID: 8300000, guid: f875308839405e146b50a366f8a8c71f, type: 3}
+--- !u!1 &6478081137903711263
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
