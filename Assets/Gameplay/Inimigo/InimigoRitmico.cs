@@ -15,6 +15,7 @@ public class InimigoRitmico : MonoBehaviour
     [Header("Eventos")]
     public UnityEvent<TipoDeAcerto> tomouDano;
     public float SpB;
+    [SerializeField] private AudioSource AD;
 
     [Header("Visual e Movimento")]
     public TMP_Text textoContagem;
