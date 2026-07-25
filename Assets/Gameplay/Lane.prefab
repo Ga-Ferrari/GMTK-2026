@@ -169,6 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   level: {fileID: 0}
-  inimigoPrefab: {fileID: 7639264125349719911, guid: a52287f6e9b7c7d499ca561cf2bcb8b1, type: 3}
+  posicaoDestaLane: 0
+  inimigoPrefabs:
+  - {fileID: 7639264125349719911, guid: e99e14a6ef555a0429184c0a048e8ac7, type: 3}
+  - {fileID: 7639264125349719911, guid: 4f75cd5d0895f654db468f9ddbc77811, type: 3}
+  - {fileID: 7639264125349719911, guid: 4b8fd07707e7cc040bf3a99873f025e4, type: 3}
   inicioLane: {fileID: 6074227354074331363}
   fimLane: {fileID: 180080943359733413}
+  espacoMinimoEmBatidas: 2

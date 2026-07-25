@@ -130,6 +130,7 @@ public class Lane : MonoBehaviour
 
     public void teste(TipoDeAcerto acerto)
     {
+        Debug.Log(acerto);
         if (acerto == TipoDeAcerto.MuitoAdiantado || acerto == TipoDeAcerto.MuitoAtrasado)
         {
             GameManager.instance.PerderVida();
