@@ -22,6 +22,8 @@ public class InimigoRitmico : MonoBehaviour
     private Vector3 posFim;
     private int batidasAvisoPrevio; 
 
+    private int estadoAtual = 5;
+
     private bool vivo = true;
     private SpriteRenderer inimigoRenderer;
 
@@ -34,20 +36,35 @@ public class InimigoRitmico : MonoBehaviour
     [NonSerialized] public int batidaParaSoltar;
 
     private Animator animatorInimigo;
+
+    [SerializeField] private SpriteRenderer textoContagemSprite;
     
     private bool ninjaRevelado = false;
+
+    private float timerTrocaEstado=0f;
+
+    [SerializeField] private List<Sprite> spritesNumeros;
 
     void Start()
     {
         inimigoRenderer = GetComponent<SpriteRenderer>();
-        animatorInimigo = GetComponent<Animator>();
+        animatorInimigo = GetComponent<Animator>(); 
+        estadoAtual = 4;
     }
 
     void Update()
     {
         if (!vivo) return;
-
+        float tempoTrocaEstado = batidasAvisoPrevio/5f*SpB;
         float tempoTotalDeMovimento = batidasAvisoPrevio * SpB;
+
+        timerTrocaEstado +=Time.deltaTime;
+
+        if (timerTrocaEstado > tempoTrocaEstado)
+        {
+            timerTrocaEstado=0f;
+            estadoAtual--;
+        }
 
         if (tempoTotalDeMovimento > 0 && !sendoSegurado)
         {
@@ -63,6 +80,11 @@ public class InimigoRitmico : MonoBehaviour
                 if (textoContagem != null) textoContagem.enabled = false;
             }
         }
+    }
+
+    private void TrocouEstado()
+    {
+        textoContagemSprite.sprite = spritesNumeros[estadoAtual];
     }
 
     public void ConfigurarMovimento(Vector3 inicio, Vector3 fim, int tempoInimigo)
@@ -221,7 +243,7 @@ public void OnBeat(int batidaAtual)
 
         int batidasRestantes = batidaAtk - batidaAtual;
         
-        GameManager.instance.TocarAudio(Clips[0],SpB);
+        GameManager.instance.TocarAudio(Clips[0],SpB);  
         
         
         

@@ -127,10 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28abb95f3c66e354fa8d30264eb48b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
-  spriteCima: {fileID: 0}
-  spriteBaixo: {fileID: 0}
-  spriteEsquerda: {fileID: 0}
-  spriteDireita: {fileID: 0}
+  Clips: []
 --- !u!1 &6478081137903711263
 GameObject:
   m_ObjectHideFlags: 0
