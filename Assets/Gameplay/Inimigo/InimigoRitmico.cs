@@ -79,6 +79,7 @@ public class InimigoRitmico : MonoBehaviour
             if (tipoInimigo == TipoInimigo.Ninja && progressoAtual > 0.5f && !ninjaRevelado)
             {
                 ficarInvisivel();
+                textoContagemSprite.enabled = false;
                 if (textoContagem != null) textoContagem.enabled = false;
             }
         }
@@ -209,6 +210,7 @@ public class InimigoRitmico : MonoBehaviour
     {
         vivo = false;
         animatorInimigo.SetTrigger("Atirar");
+        tomouDano?.Invoke(TipoDeAcerto.MuitoAtrasado);
         if (textoContagem != null) textoContagem.enabled = false;
     }
 
@@ -236,6 +238,7 @@ public void OnBeat(int batidaAtual)
         {
             ninjaRevelado = true;
             ficarVisivel(); 
+            textoContagem.enabled = true;
             if (textoContagem != null) 
             {
                 textoContagem.enabled = true; // Religa o canvas do texto

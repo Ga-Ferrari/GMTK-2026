@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
   Clips:
-  - {fileID: 8300000, guid: f875308839405e146b50a366f8a8c71f, type: 3}
+  - {fileID: 8300000, guid: 70ad06765fc31cb4dac59f5791f1b58f, type: 3}
 --- !u!1 &471405899265123722
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ Transform:
   m_GameObject: {fileID: 471405899265123722}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.19949, y: 0.61259985, z: 1}
+  m_LocalPosition: {x: 2.19949, y: 0.61259985, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 6753383238743217947}
   - component: {fileID: 684856272675297596}
   m_Layer: 0
-  m_Name: Level 1
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6610,7 +6610,7 @@ Transform:
   m_GameObject: {fileID: 7479369546182741935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.37, y: -0.65, z: 0}
+  m_LocalPosition: {x: 7.37, y: -0.65, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
