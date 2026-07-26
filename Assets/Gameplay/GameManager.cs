@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("Visual das Vidas")]
     public GameObject[] coracoesVisual;
 
+    
     public AudioClip[] audios;
     void Awake()
     {

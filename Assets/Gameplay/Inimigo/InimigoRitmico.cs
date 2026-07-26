@@ -23,6 +23,8 @@ public class InimigoRitmico : MonoBehaviour
     private Vector3 posFim;
     private int batidasAvisoPrevio; 
 
+    private int estadoAtual = 5;
+
     private bool vivo = true;
     private SpriteRenderer inimigoRenderer;
 
@@ -35,20 +37,36 @@ public class InimigoRitmico : MonoBehaviour
     [NonSerialized] public int batidaParaSoltar;
 
     private Animator animatorInimigo;
+
+    [SerializeField] private SpriteRenderer textoContagemSprite;
     
     private bool ninjaRevelado = false;
+
+    private float timerTrocaEstado=0f;
+
+    [SerializeField] private List<Sprite> spritesNumeros;
 
     void Start()
     {
         inimigoRenderer = GetComponent<SpriteRenderer>();
-        animatorInimigo = GetComponent<Animator>();
+        animatorInimigo = GetComponent<Animator>(); 
+        estadoAtual = 4;
     }
 
     void Update()
     {
         if (!vivo) return;
-
+        //float tempoTrocaEstado = batidasAvisoPrevio/5f*SpB;
         float tempoTotalDeMovimento = batidasAvisoPrevio * SpB;
+
+        timerTrocaEstado +=Time.deltaTime;
+
+        //if (timerTrocaEstado > tempoTrocaEstado)
+        /*{
+            timerTrocaEstado=0f;
+            estadoAtual--;
+            Debug.Log("Trocou");
+        }*/
 
         if (tempoTotalDeMovimento > 0 && !sendoSegurado)
         {
@@ -61,9 +79,15 @@ public class InimigoRitmico : MonoBehaviour
             if (tipoInimigo == TipoInimigo.Ninja && progressoAtual > 0.5f && !ninjaRevelado)
             {
                 ficarInvisivel();
+                textoContagemSprite.enabled = false;
                 if (textoContagem != null) textoContagem.enabled = false;
             }
         }
+    }
+
+    private void TrocouEstado()
+    {
+        if(estadoAtual>=0&&estadoAtual<spritesNumeros.Count)textoContagemSprite.sprite = spritesNumeros[estadoAtual];
     }
 
     public void ConfigurarMovimento(Vector3 inicio, Vector3 fim, int tempoInimigo)
@@ -186,6 +210,7 @@ public class InimigoRitmico : MonoBehaviour
     {
         vivo = false;
         animatorInimigo.SetTrigger("Atirar");
+        tomouDano?.Invoke(TipoDeAcerto.MuitoAtrasado);
         if (textoContagem != null) textoContagem.enabled = false;
     }
 
@@ -194,7 +219,8 @@ public class InimigoRitmico : MonoBehaviour
 
 public void OnBeat(int batidaAtual)
     {
-        
+        estadoAtual--;
+        TrocouEstado();
         if (batidaAtual < batidaAtk - batidasAvisoPrevio) return;
         
         if (batidaAtual < batidaAtk)
@@ -212,6 +238,7 @@ public void OnBeat(int batidaAtual)
         {
             ninjaRevelado = true;
             ficarVisivel(); 
+            textoContagem.enabled = true;
             if (textoContagem != null) 
             {
                 textoContagem.enabled = true; // Religa o canvas do texto
@@ -222,7 +249,7 @@ public void OnBeat(int batidaAtual)
 
         int batidasRestantes = batidaAtk - batidaAtual;
         
-        GameManager.instance.TocarAudio(Clips[0],SpB);
+        GameManager.instance.TocarAudio(Clips[0],SpB);  
         
         
         

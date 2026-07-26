@@ -86,6 +86,7 @@ public class Lane : MonoBehaviour
                                ? inimigoTopo.batidaParaSoltar 
                                : inimigoTopo.batidaAtk;
 
+            /*
             if (batidaAtual > batidaLimite)
             {
                 Debug.Log("Deixou o inimigo passar ou esqueceu de soltar o Beefy! Perdeu vida.");
@@ -96,7 +97,7 @@ public class Lane : MonoBehaviour
             else
             {
                 break; // Se o primeiro da fila ainda está dentro do tempo, podemos parar de checar
-            }
+            }*/
         }
 
         foreach (InimigoRitmico inimigo in InimigosAtivos)
