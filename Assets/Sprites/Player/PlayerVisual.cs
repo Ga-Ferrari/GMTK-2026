@@ -16,9 +16,11 @@ public class PlayerVisual : MonoBehaviour
         animatorPlayer = GetComponent<Animator>();
     }
 
+    
+
     public void MudarDirecao(PosicaoLane direcaoAtaque)
     {
-        GameManager.instance.TocarAudio(Clips[0], 1);
+        GameManager.instance.TocarAudio(Clips[UnityEngine.Random.Range(0,2)], UnityEngine.Random.Range(0.85f, 1.15f));
         switch (direcaoAtaque)
         {
             case PosicaoLane.cima:
