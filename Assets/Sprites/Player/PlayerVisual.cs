@@ -4,7 +4,7 @@ public class PlayerVisual : MonoBehaviour
 {
     private Animator animatorPlayer;
     [SerializeField] AudioClip[] Clips;
-
+    
     void Awake()
     {
         animatorPlayer = GetComponent<Animator>();

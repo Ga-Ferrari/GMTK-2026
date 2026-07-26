@@ -56,16 +56,17 @@ public class InimigoRitmico : MonoBehaviour
     void Update()
     {
         if (!vivo) return;
-        float tempoTrocaEstado = batidasAvisoPrevio/5f*SpB;
+        //float tempoTrocaEstado = batidasAvisoPrevio/5f*SpB;
         float tempoTotalDeMovimento = batidasAvisoPrevio * SpB;
 
         timerTrocaEstado +=Time.deltaTime;
 
-        if (timerTrocaEstado > tempoTrocaEstado)
-        {
+        //if (timerTrocaEstado > tempoTrocaEstado)
+        /*{
             timerTrocaEstado=0f;
             estadoAtual--;
-        }
+            Debug.Log("Trocou");
+        }*/
 
         if (tempoTotalDeMovimento > 0 && !sendoSegurado)
         {
@@ -85,7 +86,7 @@ public class InimigoRitmico : MonoBehaviour
 
     private void TrocouEstado()
     {
-        textoContagemSprite.sprite = spritesNumeros[estadoAtual];
+        if(estadoAtual>=0&&estadoAtual<spritesNumeros.Count)textoContagemSprite.sprite = spritesNumeros[estadoAtual];
     }
 
     public void ConfigurarMovimento(Vector3 inicio, Vector3 fim, int tempoInimigo)
@@ -216,7 +217,8 @@ public class InimigoRitmico : MonoBehaviour
 
 public void OnBeat(int batidaAtual)
     {
-        
+        estadoAtual--;
+        TrocouEstado();
         if (batidaAtual < batidaAtk - batidasAvisoPrevio) return;
         
         if (batidaAtual < batidaAtk)
