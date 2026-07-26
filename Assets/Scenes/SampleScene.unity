@@ -481,53 +481,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 367250896324623490, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: Clips.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 367250896324623490, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: 'Clips.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 70ad06765fc31cb4dac59f5791f1b58f, type: 3}
-    - target: {fileID: 367250896324623490, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: 'Clips.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 46fcc7204ba5d9845b474920135913c3, type: 3}
-    - target: {fileID: 367250896324623490, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: 'Clips.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: e2715d5c05d0be64db2b4a95e0a69b66, type: 3}
-    - target: {fileID: 684856272675297596, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: musica
-      value: 
-      objectReference: {fileID: 1562176922}
-    - target: {fileID: 684856272675297596, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: tempoInimigo
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 684856272675297596, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: audioClips.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 684856272675297596, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: 'audioClips.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 033adff80f07151429322e23b12aa3e8, type: 3}
-    - target: {fileID: 684856272675297596, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
-      propertyPath: 'audioClips.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: b0e7615c79cd7924a9630e929a1fc2cd, type: 3}
     - target: {fileID: 1237199463319303099, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
       propertyPath: m_Name
       value: Level 1
       objectReference: {fileID: 0}
     - target: {fileID: 2922653349351369481, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.12
+      value: -2.78
       objectReference: {fileID: 0}
     - target: {fileID: 2922653349351369481, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 2922653349351369481, guid: ae9b3c44b79b8914c855a26b4a98fc25, type: 3}
       propertyPath: m_LocalPosition.z
