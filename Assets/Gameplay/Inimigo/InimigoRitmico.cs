@@ -161,6 +161,8 @@ public class InimigoRitmico : MonoBehaviour
             //GameManager.instance.TocarAudio(Clips[1], 1);
             tomouDano?.Invoke(TipoDeAcerto.Perfeito);
         }
+        animatorInimigo.SetBool("Morrendo",true);
+        textoContagemSprite.enabled = false;
 
         animatorInimigo.SetTrigger("Morrer");
         
@@ -207,7 +209,7 @@ public class InimigoRitmico : MonoBehaviour
     public void ForcarMortePorPassarDoTempo()
     {
         vivo = false;
-        animatorInimigo.SetTrigger("Atirar");
+        //animatorInimigo.SetTrigger("Atirar");
         tomouDano?.Invoke(TipoDeAcerto.MuitoAtrasado);
         if (textoContagem != null) textoContagem.enabled = false;
     }
