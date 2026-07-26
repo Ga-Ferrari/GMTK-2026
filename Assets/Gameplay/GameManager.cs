@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
     [Header("Visual das Vidas")]
     public GameObject[] coracoesVisual;
 
+    public PlayerVisual player;
     
 
 
     public AudioClip[] audios;
     void Awake()
     {
-
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
@@ -50,9 +50,22 @@ public class GameManager : MonoBehaviour
 
         if (vidas <= 0)
         {
-            SceneManager.LoadScene(nomeCenaGameOver);
+            if (player != null)
+            {
+                player.Morrer();
+            }
+            else
+            {
+                GameOver();   
+            }
         }
     }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(nomeCenaGameOver);
+    }
+
     public void TocarAudio(AudioClip clip,float SpB)
     {
         if(clip != null)

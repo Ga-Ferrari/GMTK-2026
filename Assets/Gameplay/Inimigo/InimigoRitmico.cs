@@ -243,7 +243,7 @@ public void OnBeat(int batidaAtual)
         {
             ninjaRevelado = true;
             ficarVisivel(); 
-            textoContagem.enabled = true;
+            textoContagemSprite.enabled = true;
             if (textoContagem != null) 
             {
                 textoContagem.enabled = true; // Religa o canvas do texto
