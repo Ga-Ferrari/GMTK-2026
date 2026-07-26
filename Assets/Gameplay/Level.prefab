@@ -311,6 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
   Clips:
   - {fileID: 8300000, guid: 70ad06765fc31cb4dac59f5791f1b58f, type: 3}
+  - {fileID: 8300000, guid: 2fb79a20330d8a24c90991922d8ef1f5, type: 3}
+  - {fileID: 8300000, guid: ca34f1b0a87089542949ba661b6ce7c6, type: 3}
 --- !u!1 &471405899265123722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1076,7 @@ MonoBehaviour:
   chanceDeSpawn: 0.15
   aumentarDificuldadeAcadaXBatidas: 30
   timerLevel: 0
+  audioClips: []
   PassouBatida:
     m_PersistentCalls:
       m_Calls: []

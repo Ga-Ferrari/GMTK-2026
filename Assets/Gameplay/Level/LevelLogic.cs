@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class LevelLogic : MonoBehaviour
     [Header("Inimigos (Apenas para Fase Normal)")]
     [SerializeField] private List<InimigoPosicao> inimigos;
 
+    int batidayeehaw = 10;
     [Header("Dificuldade - Modo Infinito")]
     [Range(0f, 1f)]
     public float chanceDeSpawn = 0.15f; 
@@ -36,6 +38,10 @@ public class LevelLogic : MonoBehaviour
     [NonSerialized] public int batidasLevel;
     public float timerLevel;
     [NonSerialized] public int batidaAtual;
+    [SerializeField] private AudioClip[] audioClips;
+
+    [SerializeField] private AudioSource musica;
+    public float tempoDeEsperaMusica = 2f;
 
     public UnityEvent<int> PassouBatida;
 
@@ -53,6 +59,8 @@ public class LevelLogic : MonoBehaviour
             batidasLevel = (int)(duracao / 60f) * bpm;
             PosicionarInimigos();
         }
+        PassouBatida.AddListener(Yeeehaw);
+        StartCoroutine(LoopDeMusicaComPausa());
     }
 
     void Update()
@@ -153,9 +161,12 @@ public class LevelLogic : MonoBehaviour
     {
         if (batidaAtual > 0 && batidaAtual % aumentarDificuldadeAcadaXBatidas == 0)
         {
-            chanceDeSpawn = math.min(chanceDeSpawn + 0.05f, 0.85f);
-            bpm = (int)(bpm*1.2f);
-            
+            chanceDeSpawn = math.min(chanceDeSpawn + 0.05f, 0.75f);
+            bpm = (int)(bpm*1.15f);
+            musica.pitch += 0.10f;
+            aumentarDificuldadeAcadaXBatidas = (int)(aumentarDificuldadeAcadaXBatidas * 1.15f);
+
+
             if (tempoInimigo > 4 && batidaAtual % (aumentarDificuldadeAcadaXBatidas * 2) == 0)
             {
                 tempoInimigo--;
@@ -170,5 +181,29 @@ public class LevelLogic : MonoBehaviour
             if (config.posicao == posicaoDesejada) return config.laneAtribuida;
         }
         return null;
+    }
+
+    public void Yeeehaw(int batida)
+    {
+        if (batida != batidayeehaw) return;
+        batidayeehaw = batida+UnityEngine.Random.Range(5,15);
+        GameManager.instance.TocarAudio(audioClips[UnityEngine.Random.Range(0, 2)], UnityEngine.Random.Range(0.80f, 1.20f));
+
+    }
+    private IEnumerator LoopDeMusicaComPausa()
+    {
+        while (true) // Como é modo Endless, isso roda até o jogador morrer/fechar o jogo
+        {
+            musica.Play(); // Dá o play na música
+
+            // Essa linha é genial: ela "congela" a coroutine e fica esperando até a música acabar.
+            // Ela checa sozinha se o "isPlaying" virou falso.
+            yield return new WaitWhile(() => musica.isPlaying);
+
+            // A música acabou de tocar! Agora esperamos os 2 segundos de silêncio:
+            yield return new WaitForSeconds(tempoDeEsperaMusica);
+
+            // Fim do loop! Ele volta lá pro topo do 'while' e dá o Play de novo.
+        }
     }
 }

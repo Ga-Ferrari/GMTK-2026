@@ -1,9 +1,10 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using TMPro;
-using System.Collections.Generic;
 
 public enum TipoDeAcerto { MuitoAdiantado, Adiantado, Perfeito, Atrasado, MuitoAtrasado }
 
@@ -37,6 +38,7 @@ public class InimigoRitmico : MonoBehaviour
     [NonSerialized] public int batidaParaSoltar;
 
     private Animator animatorInimigo;
+    
 
     [SerializeField] private SpriteRenderer textoContagemSprite;
     
@@ -51,7 +53,10 @@ public class InimigoRitmico : MonoBehaviour
         inimigoRenderer = GetComponent<SpriteRenderer>();
         animatorInimigo = GetComponent<Animator>(); 
         estadoAtual = 4;
+        
     }
+
+    
 
     void Update()
     {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] coracoesVisual;
 
     
+
+
     public AudioClip[] audios;
     void Awake()
     {
@@ -28,11 +31,17 @@ public class GameManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
+    private void Start()
+    {
+        
+    }
+
+    
 
     public void PerderVida()
     {
         vidas--;
-        
+        TocarAudio(audios[0],1);
         // Desativa a imagem correspondente. Ex: Se as vidas caem de 3 para 2, desativa o coração do índice [2].
         if (vidas >= 0 && vidas < coracoesVisual.Length)
         {
@@ -65,7 +74,7 @@ public class GameManager : MonoBehaviour
             ultimoClipTocado = clip;
             audio.PlayOneShot(clip);
             float duracaoReal = clip.length / audio.pitch;
-            Destroy(audio, duracaoReal);
+            Destroy(temp, duracaoReal);
         }
         
     }
