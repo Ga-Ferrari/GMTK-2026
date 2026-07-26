@@ -7,6 +7,12 @@ public class PlayerVisual : MonoBehaviour
     
     void Awake()
     {
+        
+    }
+
+    void Start()
+    {
+        GameManager.instance.player = this;
         animatorPlayer = GetComponent<Animator>();
     }
 
@@ -32,5 +38,15 @@ public class PlayerVisual : MonoBehaviour
                 break;
         }
         animatorPlayer.SetTrigger("Atacar");
+    }
+
+    public void Morrer()
+    {
+        animatorPlayer.SetBool("Morrendo",true);
+    }
+
+    public void AnimacaoTerminou()
+    {
+        GameManager.instance.GameOver();
     }
 }
