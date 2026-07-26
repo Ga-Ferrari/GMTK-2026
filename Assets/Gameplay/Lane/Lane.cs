@@ -86,6 +86,7 @@ public class Lane : MonoBehaviour
                                ? inimigoTopo.batidaParaSoltar 
                                : inimigoTopo.batidaAtk;
 
+            break;
             /*
             if (batidaAtual > batidaLimite)
             {
