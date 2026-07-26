@@ -136,9 +136,7 @@ public class InimigoRitmico : MonoBehaviour
     {
         vivo = false;
         float diferencaTempo = batidaAtk * SpB - tempoDoAtk; 
-        
 
-        
         if (textoContagem != null) textoContagem.enabled = false; 
 
         if (math.abs(diferencaTempo) > GameManager.instance.hitTimeBuffer)
@@ -164,7 +162,7 @@ public class InimigoRitmico : MonoBehaviour
             tomouDano?.Invoke(TipoDeAcerto.Perfeito);
         }
 
-        Destroy(gameObject,0.2f);
+        animatorInimigo.SetTrigger("Morrer");
         
     }
 
