@@ -17,7 +17,7 @@ Have you ever thought of standoffs as rhythmitic? Have you ever wanted to be in 
 
 ## ⌨️ How to Play
 * **WASD:** Choose the direction and shoot immediately
-* 
+
 ## 🛠️ Made with
 * **Engine:** Unity.
 * **Art:** Aseprite.
