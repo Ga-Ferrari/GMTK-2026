@@ -27,6 +27,7 @@ Have you ever thought of standoffs as rhythmitic? Have you ever wanted to be in 
 ### 💻 Programming
 * **[Gabriel Ferrari](https://github.com/Ga-Ferrari)**
 * **[Matheus Ferrari](https://github.com/Maropio)**
+* **[Luizord](https://github.com/Luizord0)**
 
 ### 🎨 Art, Visual and Audio
 * **[Cristina](https://github.com/cristal089)**
